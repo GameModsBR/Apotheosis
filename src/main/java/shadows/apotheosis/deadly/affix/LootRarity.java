@@ -3,7 +3,7 @@ package shadows.apotheosis.deadly.affix;
 import java.util.Random;
 
 import net.minecraft.util.text.Color;
-import shadows.apotheosis.deadly.DeadlyModuleClient.RainbowColor;
+import shadows.apotheosis.deadly.DeadlyModuleClient;
 import shadows.apotheosis.deadly.config.DeadlyConfig;
 
 /**
@@ -21,7 +21,7 @@ public enum LootRarity {
 	RARE(0x5555FF, 2),
 	EPIC(0xBB00BB, 3),
 	MYTHIC(0xED7014, 3),
-	ANCIENT(new RainbowColor(), 3);
+	ANCIENT(DeadlyModuleClient.getRainbowColor(), 3);
 
 	final Color color;
 	final int affixes;

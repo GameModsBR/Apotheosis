@@ -8,6 +8,8 @@ import net.minecraft.util.text.Color;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent.ClientTickEvent;
 import net.minecraftforge.event.TickEvent.Phase;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.forgespi.Environment;
 import shadows.apotheosis.ApotheosisObjects;
 import shadows.apotheosis.deadly.objects.AffixTomeItem;
 import shadows.apotheosis.deadly.objects.RarityShardItem;
@@ -38,9 +40,20 @@ public class DeadlyModuleClient {
 		}
 	}
 
-	public static class RainbowColor extends Color {
+	public static Color getRainbowColor() {
+		if (Environment.get().getDist().isClient()) {
+			return new RainbowColorClient();
+		}
 
-		public RainbowColor() {
+		// MohistMC build 820 compatibility
+		Color color = Color.fromRgb(0);
+		color.name = "rainbow";
+		return color;
+	}
+
+	private static class RainbowColorClient extends Color {
+
+		public RainbowColorClient() {
 			super(0, "rainbow");
 		}
 

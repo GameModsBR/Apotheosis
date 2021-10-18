@@ -32,7 +32,6 @@ import shadows.apotheosis.Apotheosis;
 import shadows.apotheosis.Apotheosis.ApotheosisConstruction;
 import shadows.apotheosis.Apotheosis.ApotheosisReloadEvent;
 import shadows.apotheosis.ApotheosisObjects;
-import shadows.apotheosis.deadly.DeadlyModuleClient.RainbowColor;
 import shadows.apotheosis.deadly.affix.AffixEvents;
 import shadows.apotheosis.deadly.affix.LootRarity;
 import shadows.apotheosis.deadly.affix.recipe.AffixShardingRecipe;
@@ -81,7 +80,7 @@ public class DeadlyModule {
 		}
 		RecipeHelper.addRecipe(new AffixShardingRecipe(new ResourceLocation(Apotheosis.MODID, "affix_sharding_" + LootRarity.ANCIENT.name().toLowerCase(Locale.ROOT)), LootRarity.ANCIENT));
 		Color.NAMED_COLORS = new HashMap<>(Color.NAMED_COLORS);
-		Color.NAMED_COLORS.put("rainbow", new RainbowColor());
+		Color.NAMED_COLORS.put("rainbow", DeadlyModuleClient.getRainbowColor());
 	}
 
 	@SubscribeEvent
